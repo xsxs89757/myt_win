@@ -1,0 +1,16 @@
+node_modules/
+pnpm-lock.yaml
+
+# Tauri / Rust
+src-tauri/target/
+src-tauri/gen/
+
+# Build outputs
+dist/
+build/
+out/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
