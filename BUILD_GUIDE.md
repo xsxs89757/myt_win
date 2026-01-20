@@ -14,7 +14,7 @@
 构建完成后进入对应的 workflow run：
 - `macos-aarch64`：通常包含 `.app` 和 `.dmg`
 - `macos-x86_64`：通常包含 `.app` 和 `.dmg`
-- `windows-x64`：通常包含 `.msi` 或 `.exe`（取决于默认打包器）
+- `windows-x64`：当前 CI 配置输出 NSIS 安装包（`.exe`）
 
 路径统一为：`src-tauri/target/release/bundle/**`
 
@@ -39,6 +39,13 @@ pnpm tauri build
 ```
 
 > Windows 需要：Rust（MSVC）、Node.js、pnpm、以及 Visual Studio Build Tools。
+
+## 六、如果需要 MSI
+当前 CI 为避免 WiX `light.exe` 报错，改为只构建 NSIS。  
+如需 MSI，可将 Windows 构建命令改为：
+```bash
+pnpm tauri build --bundles msi
+```
 
 ## 五、常见问题
 ### 1. 未签名/未公证
